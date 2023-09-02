@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  if (currentUser)
+    h1 Welcome Back #{currentUser.username}!
+    a(href="/log-out") Log Out
+  else
+    h1 Please log in
+    form(action="/log-in" method="POST")
+      label(for="username") Username: 
+      input(name="username" placeholder="username" type="text")
+      label(for="password") Password: 
+      input(type="password" name="password")
+      button(type="submit") Log In
