@@ -8,8 +8,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const { body, validationResult } = require("express-validator");
 
-const mongoDb =
-  "mongodb+srv://bobacrypto2:AEGXYLOYtkdH3Lca@cluster0.cqzrflt.mongodb.net/auth-test?retryWrites=true&w=majority";
+const mongoDb = process.env.SECRET_MONGO_URL;
 mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
